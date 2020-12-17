@@ -1,0 +1,29 @@
+.mat-flat-button.mat-warn {
+  background-color: deeppink;
+}
+
+.mat-card {
+  text-align: center;
+}
+
+.inner-wrapper {
+  padding: 15px 0 70px;
+}
+
+.container {
+  margin-bottom: 150px
+}
+
+.currentElement:hover {
+  cursor: pointer;
+  background-color: rgba(128, 128, 128, 0.041)
+}
+
+td.mat-cell:last-of-type {
+  text-align: end;
+}
+
+th.mat-header-cell:last-of-type {
+  text-align: end;
+  padding-right: 45px;
+}

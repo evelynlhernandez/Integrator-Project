@@ -1,0 +1,31 @@
+<mat-toolbar class="header">
+<div>Artículos</div>
+<span class="nav-tool-items">
+  <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
+</span>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <!-- Sidenav -->
+  <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened" [fixedInViewport]="true"
+    [fixedTopGap]>
+    <mat-nav-list>
+      <a mat-list-item routerLinkActive="active" routerLink="new-article">
+        <mat-icon>add</mat-icon> Agregar artículo
+      </a>
+      <a mat-list-item routerLinkActive="active" routerLink="articles">
+        <mat-icon>format_list_bulleted</mat-icon> Ver artículos
+      </a>
+      <hr/>
+      <a mat-list-item routerLinkActive="active" routerLink="/login">
+        <mat-icon>login</mat-icon> Cerrar Sesión
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main content -->
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+  
+</mat-sidenav-container>

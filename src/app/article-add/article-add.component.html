@@ -1,0 +1,65 @@
+<!-- Title group  -->
+<div class="title-group">
+  <h1 class="mat-h1">Nuevo artículo</h1>
+  <mat-divider fxFlex="1 0"></mat-divider>
+</div>
+
+<!-- Form -->
+<div class="inner-wrapper">
+  <form [formGroup]="articleForm" (ngSubmit)="submitArticleForm()" #resetArticleForm="ngForm" novalidate>
+    <!-- Left block -->
+    <mat-card>
+      <div class="controlers-wrapper">
+
+        <!-- Title -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Título del artículo" formControlName="title">
+          <mat-error *ngIf="handleError('title', 'required')">
+            Debes ingresar un <strong>título</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Description -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="¿De qué trata este artículo?" formControlName="description">
+          <mat-error *ngIf="handleError('description', 'required')">
+            Debes ingresar una <strong>descripción</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Body -->
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Escriba su artículo..." formControlName="body">
+          <mat-error *ngIf="handleError('body', 'required')">
+            Debes escribir un <strong>artículo</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Add Tags -->
+        <mat-form-field class="multiple-items">
+          <mat-chip-list #chipList>
+            <mat-chip *ngFor="let tag of tagListArray" [selectable]="selectable" [removable]="removable"
+              (removed)="remove(tag)">
+              {{tag}}
+              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input placeholder="Agregar etiqueta" [matChipInputFor]="chipList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="add($event)">
+          </mat-chip-list>
+          <i class="material-icons tooltip-info" matTooltip="Ingrese el nombre de la etiqueta y presione enter para agregarla">
+            info
+          </i>
+        </mat-form-field>
+
+      </div>
+
+    <!-- Submit & Reset -->
+      <div class="full-wrapper button-wrapper">
+        <div class="button-wrapper">
+          <button type="submit" mat-flat-button color="warn">Agregar</button>
+        </div>
+      </div>
+    </mat-card>
+  </form>
+</div>

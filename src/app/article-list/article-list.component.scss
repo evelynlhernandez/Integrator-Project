@@ -1,0 +1,13 @@
+.currentElement:hover {
+  cursor: pointer;
+  background-color: rgba(128, 128, 128, 0.041)
+}
+
+td.mat-cell:last-of-type {
+  text-align: end;
+}
+
+th.mat-header-cell:last-of-type {
+  text-align: end;
+  padding-right: 90px;
+}
